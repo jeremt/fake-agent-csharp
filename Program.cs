@@ -1,42 +1,13 @@
-﻿enum MessageRole {
+﻿using Agents;
+using Tools;
+
+enum MessageRole {
     User,
     Assistant
 }
 class Message {
     public MessageRole Role { get; init; }
     public required string Content { get; init; }
-}
-
-abstract class Agent {
-
-    public string SystemPrompt { get; }
-    public string Url { get; }
-    public Agent(string systemPrompt, string url) {
-        SystemPrompt = systemPrompt;
-        Url = url;
-    }
-
-    public abstract void Connect();
-}
-
-class OpenAIAgent: Agent {
-
-    public OpenAIAgent(string systemPrompt) : base(systemPrompt, "https://openai.com/api") {
-        Console.WriteLine("Create openai..");
-    }
-
-    public override void Connect() {
-        Console.WriteLine($"Je me connecte à OpenAI avec {Url}");
-    }
-}
-
-class DeepseekAgent: Agent {
-
-    public DeepseekAgent(string systemPrompt) : base(systemPrompt, "https://deepseek.com/api") {}
-
-    public override void Connect() {
-        Console.WriteLine($"Je me connecte à Deepseek avec {Url}");
-    }
 }
 
 class Program {
@@ -47,6 +18,10 @@ class Program {
             new OpenAIAgent("Tu es un agent qui sait super bien coder"),
             new DeepseekAgent("Tu es un agent qui sait un peu coder")
         ];
+
+        agents[0].AddTool(new WebSearch());
+        agents[0].AddTool(new PdfToText());
+        agents[0].ExecuteAllTools();
         foreach (var agent in agents) {
             agent.Connect();
         }
