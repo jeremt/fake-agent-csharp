@@ -1,0 +1,73 @@
+## Build results
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider settings
+.idea/
+
+## VS Code settings
+.vscode/
+*.code-workspace
+
+## Auto-generated files
+Generated_Code/
+*.g.*
+
+## ASP.NET stuff
+wwwroot/
+node_modules/
+dist/
+bower_components/
+
+## Runtime files
+*.db
+*.db-shm
+*.db-wal
+*.log
+
+## Visual Studio database projects
+*.mdf
+*.ldf
+
+## DotCover
+*.dcvr
+*.dcvr.*.xml
+
+## Resharper
+_ReSharper*/
+*.DotSettings.user
+
+## Logs
+*.log
+Logs/
+
+## Secrets (you should use user secrets or environment vars anyway)
+secrets.json
+
+## Global JetBrains IDE settings
+.idea/
+*.sln.iml
+
+## Backup & crash files
+*.bak
+*.swp
+*~.nib
+*.tmp
+
+## Others you might want
+.env
+*.DS_Store
+Thumbs.db
+
+## Test results
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
